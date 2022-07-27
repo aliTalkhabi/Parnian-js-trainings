@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'iranSans';
+            src: url(fonts/IranianSans.ttf);
+            font-weight: 500;
+            color: black;
+        }
+        
+         ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+         ::-webkit-scrollbar-track {
+            background: #f9f9f9;
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            background: #ebebeb;
+            border-radius: 15px;
+        }
+        
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            height: 150vh;
+            width: 100%;
+            background: #f9f9f9;
+            font-family: 'iranSans';
+        }
+        
+        main {
+            width: 100%;
+            height: 100%;
+            /* border: 1px solid green; */
+            display: block;
+        }
+        
+        .product_parent {
+            width: 79%;
+            height: calc(32% - 10px);
+            background: white;
+            /* border: 1px solid red; */
+            float: right;
+            margin: 10px 0;
+            display: inline-block;
+        }
+        
+        .cart_parent {
+            width: 20%;
+            height: 96.75%;
+            overflow-y: scroll;
+            border-right: 1px solid #ebebeb;
+            /* border: 1px solid blue; */
+            display: inline-block;
+            background: white;
+            margin: 1% 0;
+            position: fixed;
+            text-align: center;
+            font-family: 'iranSans';
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        .product {
+            width: calc(25% - 10px);
+            /* border: 1px solid greenyellow; */
+            float: right;
+            height: 90%;
+            background: #f9f9f9;
+            margin: 1% 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .img_parent {
+            width: 100%;
+            height: 50%;
+            display: block;
+        }
+        
+        .img_parent img {
+            width: 120px;
+            height: 120px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            object-fit: fill;
+        }
+        
+        .p_name {
+            width: 100%;
+            height: 25px;
+            font-size: 16px;
+            display: block;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .p_btn {
+            width: 100%;
+            height: 30px;
+            /* border: 1px solid red; */
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+        }
+        
+        .p_btn button {
+            width: 150px;
+            height: 30px;
+            border-radius: 10px;
+            background: rgb(4, 168, 26);
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            outline: none;
+            font-family: 'iranSans';
+        }
+        
+        span.price {
+            float: right;
+            font-size: 14px;
+            font-weight: lighter;
+            direction: rtl;
+            margin-right: 10px;
+        }
+        
+        .cart_parent li {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            margin: 5px 0;
+            background: #f9f9f9;
+        }
+        
+        #sum {
+            padding: 5px;
+            font-weight: 300;
+            background: #ebebeb;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body dir="rtl" lang="fa-ir">
+    <main>
+        <div class="product_parent">
+            <div class="product">
+                <span class="img_parent">
+                    <img src="img/1.jpg" alt="">
+                </span>
+                <span class="p_name">تی شرت مردانه</span>
+                <span class="p_btn"><button data-count="1" onclick="_basket(this,'تی شرت','p1')">افزودن به سبد خرید</button></span>
+                <span class="price">125000تومان</span>
+
+            </div>
+            <div class="product">
+                <span class="img_parent">
+                    <img src="img/2.jpg" alt="">
+                </span>
+                <span class="p_name">ساعت دیواری</span>
+                <span class="p_btn"><button data-count="1" onclick="_basket(this,'ساعت دیواری','p2')">افزودن به سبد خرید</button></span>
+                <span class="price">600000تومان</span>
+
+            </div>
+            <div class="product">
+                <span class="img_parent">
+                    <img src="img/3.jpg" alt="">
+                </span>
+                <span class="p_name">شلوار جین </span>
+                <span class="p_btn"><button data-count="1" onclick="_basket(this,'شلوار جین','p3')">افزودن به سبد خرید</button></span>
+                <span class="price">100000تومان</span>
+
+            </div>
+            <div class="product">
+                <span class="img_parent">
+                    <img src="img/4.jpg" alt="">
+                </span>
+                <span class="p_name">پیراهن</span>
+                <span class="p_btn"><button data-count="1"  onclick="_basket(this,'پیراهن','p4')">افزودن به سبد خرید</button></span>
+                <span class="price">70000تومان</span>
+
+            </div>
+        </div>
+        <div class="product_parent">
+            <div class="product">
+                <span class="img_parent">
+                    <img src="img/5.png" alt="">
+                </span>
+                <span class="p_name"> گوشی تلفن همراه</span>
+                <span class="p_btn"><button data-count="1" data-count="1"  onclick="_basket(this,'گوشی تلفن همراه','p5')">افزودن به سبد خرید</button></span>
+                <span class="price">1200000تومان</span>
+
+            </div>
+            <div class="product">
+                <span class="img_parent">
+                    <img src="img/6.jpg" alt="">
+                </span>
+                <span class="p_name"> تبلت </span>
+                <span class="p_btn"><button data-count="1" onclick="_basket(this,'تبلت','p6')">افزودن به سبد خرید</button></span>
+                <span class="price">2000000تومان</span>
+
+            </div>
+            <div class="product">
+                <span class="img_parent">
+                    <img src="img/7.jpg" alt="">
+                </span>
+                <span class="p_name">ساعت هوشمند </span>
+                <span class="p_btn"><button data-count="1" onclick="_basket(this,'ساعت هوشمند','p7')">افزودن به سبد خرید</button></span>
+                <span class="price">1150000تومان</span>
+
+            </div>
+            <div class="product">
+                <span class="img_parent">
+                    <img src="img/8.jpg" alt="">
+                </span>
+                <span class="p_name">هدفون بی سیم</span>
+                <span class="p_btn"><button data-count="1" onclick="_basket(this,'هدفون بی سیم','p8')">افزودن به سبد خرید</button></span>
+                <span class="price">500000تومان</span>
+
+            </div>
+        </div>
+        <div class="product_parent">
+            <div class="product">
+                <span class="img_parent">
+                    <img src="img/9.jpg" alt="">
+                </span>
+                <span class="p_name">آچار فرانسه</span>
+                <span class="p_btn"><button data-count="1" onclick="_basket(this,'آچار فرانسه','p9')">افزودن به سبد خرید</button></span>
+                <span class="price">70000تومان</span>
+
+            </div>
+            <div class="product">
+                <span class="img_parent">
+                    <img src="img/10.jpg" alt="">
+                </span>
+                <span class="p_name">سیم چین </span>
+                <span class="p_btn"><button data-count="1" onclick="_basket(this,'سیم چین','p10')">افزودن به سبد خرید</button></span>
+                <span class="price">25000تومان</span>
+
+            </div>
+            <div class="product">
+                <span class="img_parent">
+                    <img src="img/11.jpg" alt="">
+                </span>
+                <span class="p_name">فاز متر</span>
+                <span class="p_btn"><button data-count="1" onclick="_basket(this,'فاز متر','p11')">افزودن به سبد خرید</button></span>
+                <span class="price">20000تومان</span>
+
+            </div>
+            <div class="product">
+                <span class="img_parent">
+                    <img src="img/12.jpg" alt="">
+                </span>
+                <span class="p_name">سوکت زن</span>
+                <span class="p_btn"><button data-count="1" onclick="_basket(this,'سوکت زن','p12')">افزودن به سبد خرید</button></span>
+                <span class="price">35000تومان</span>
+
+            </div>
+        </div>
+        <ul class="cart_parent">سبد خرید
+            <h3 id="sum"></h3>
+        </ul>
+    </main>
+    <script>
+        var i = 0;
+        var total = 0
+
+        function _basket(p, pro, model) {
+            var price;
+            switch (model) {
+                case 'p1':
+                    price = '100000';
+                    i++
+                    break;
+                case 'p2':
+                    price = '60000';
+                    break;
+                case 'p3':
+                    price = '100000';
+                    break;
+                case 'p4':
+                    price = '70000';
+                    break;
+                case 'p5':
+                    price = '1200000';
+                    break;
+                case 'p6':
+                    price = '2000000';
+                    break;
+                case 'p7':
+                    price = '1150000';
+                    break;
+                case 'p8':
+                    price = '500000';
+                    break;
+                case 'p9':
+                    price = '70000';
+                    break;
+                case 'p10':
+                    price = '50000';
+                    break;
+                case 'p11':
+                    price = '20000';
+                    break;
+                case 'p12':
+                    price = '35000';
+                    break;
+            }
+            x = Number(p.getAttribute('data-count'))
+                // console.log(x)
+            if (x == 1) {
+                var _tag = document.createElement('li')
+                _tag.setAttribute('class', model)
+                _tag.innerHTML = pro + " : " + price
+                document.querySelector('.cart_parent').appendChild(_tag)
+
+            } else {
+                document.querySelector("." + model).innerHTML = pro + " : " + price + "*" + x
+            }
+            total = total + parseInt(price)
+            p.setAttribute('data-count', x + 1)
+            document.getElementById('sum').innerHTML = 'مجموع قیمت :' + total + 'تومان'
+                // if (pro = '') {
+                //     var _tag = document.createElement('li')
+                //     _tag.innerHTML = pro + " : " + price
+                //     document.querySelector('.cart_parent').appendChild(_tag)
+                // }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'AlmaMono';
+    src: url(fonts/almamono-bold-webfont.woff);
+    font-weight: 500;
+}
+
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    font-family: 'AlmaMono';
+}
+
+main>article {
+    width: 40%;
+    height: 70%;
+    border: 1px solid #ff7900;
+    background: #ff79002b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+}
+
+input {
+    width: 80%;
+    padding: 5px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #ff7900;
+    background: #0000;
+    color: #fff;
+    font-size: 1.25rem;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+input::placeholder {
+    text-align: center;
+    color: #fff;
+}
+
+button {
+    width: 21%;
+    padding: 8px;
+    background: #ff7900;
+    border: none;
+    margin: 0 auto;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+article:nth-of-type(2) {
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+article:nth-of-type(2) ul {
+    width: 100%;
+    height: 100%;
+}
+
+article:nth-of-type(2) ul li {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    float: left;
+    width: 33.3333%;
+    text-align: left;
+    padding: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.hide {
+    display: none;
+}
